@@ -1,25 +1,23 @@
 import 'package:pagination/data/api/dio_consumer.dart';
 import 'package:pagination/data/model/posts.dart';
 
-// HomeRepoImp
-class HomeRepository implements HomeRepo {
+abstract class HomeRepository {
+  Future<List<Posts>> getAllPostes();
+}
+
+class HomeRepositoryImp implements HomeRepository {
   final DioConsumer dioConsumer;
-  HomeRepository({this.dioConsumer});
+  HomeRepositoryImp({this.dioConsumer});
 
   @override
   Future<List<Posts>> getAllPostes() async {
-    List<Posts> levelList;
+    String postUrl = "https://jsonplaceholder.typicode.com/posts";
+    List<Posts> postsList;
 
-    final response =
-        await dioConsumer.get("https://jsonplaceholder.typicode.com/posts");
+    final response = await dioConsumer.get(postUrl);
 
-    print(response);
     Iterable iterable = response;
-    levelList = iterable.map((model) => Posts.fromJson(model)).toList();
-    return levelList;
+    postsList = iterable.map((model) => Posts.fromJson(model)).toList();
+    return postsList;
   }
-}
-
-abstract class HomeRepo {
-  Future<List<Posts>> getAllPostes();
 }

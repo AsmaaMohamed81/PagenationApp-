@@ -3,8 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:pagination/data/api/dio_consumer.dart';
 import 'package:pagination/data/repositories/home_repository.dart';
 import 'package:pagination/ui/cubit/home/home_cubit.dart';
-import 'package:pagination/ui/home/home.dart';
-import 'package:pagination/utils/routes.dart';
+import 'package:pagination/utils/app_routes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
@@ -32,17 +31,21 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => HomeCubit(
-                homeRepository: HomeRepository(dioConsumer: DioConsumer())),
-            child: Container(),
-          )
-        ],
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: ' App',
-          routes: routes,
-        ));
+      providers: [
+        BlocProvider(
+          create: (context) => HomeCubit(
+            homeRepository: HomeRepositoryImp(
+              dioConsumer: DioConsumer(),
+            ),
+          ),
+          child: Container(),
+        )
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: ' App',
+        routes: AppRoutes.routes,
+      ),
+    );
   }
 }

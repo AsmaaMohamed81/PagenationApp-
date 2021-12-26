@@ -2,11 +2,11 @@ part of 'home_cubit.dart';
 
 abstract class HomeState {}
 
-class HomeInitial extends HomeState {}
+class PostsInitial extends HomeState {}
 
-class HomeLoadingState extends HomeState {
+class PostsLoadingState extends HomeState {
   final bool isLoading;
-  HomeLoadingState(this.isLoading);
+  PostsLoadingState(this.isLoading);
 }
 
 class FetchPostesSuccessState extends HomeState {
@@ -17,15 +17,7 @@ class FetchPostesSuccessState extends HomeState {
   );
 }
 
-class LoadingMoreState extends HomeState {}
-
-class LoadedMoreState extends HomeState {
-  final List<Posts> loadedMorePosts;
-
-  LoadedMoreState(this.loadedMorePosts);
-}
-
-class StudentDashboardFailure extends HomeState {
+class FailurePostesState extends HomeState {
   final String message;
-  StudentDashboardFailure({this.message});
+  FailurePostesState({this.message});
 }
