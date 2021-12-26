@@ -1,0 +1,8 @@
+io/flutter/plugins/wifi_info_flutter/WifiInfoFlutterMethodChannelHandler.java
+ io.flutter.plugins.wifi_info_flutter.WifiInfoFlutterMethodChannelHandler
+io/flutter/plugins/wifi_info_flutter/BuildConfig.java
+ io.flutter.plugins.wifi_info_flutter.BuildConfig
+io/flutter/plugins/wifi_info_flutter/WifiInfoFlutter.java
+ io.flutter.plugins.wifi_info_flutter.WifiInfoFlutter
+io/flutter/plugins/wifi_info_flutter/WifiInfoFlutterPlugin.java
+ io.flutter.plugins.wifi_info_flutter.WifiInfoFlutterPlugin
